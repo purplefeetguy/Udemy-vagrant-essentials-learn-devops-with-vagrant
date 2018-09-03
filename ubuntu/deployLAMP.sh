@@ -32,3 +32,10 @@ sudo apachectl restart
 sed -i '/mysql/{n;n;n;n;s/'\''DB_DATABASE'\'', '\''.*'\''/'\''DB_DATABASE'\'', '\''myProject'\''/g}' /var/www/myProject/config/database.php 
 sed -i '/mysql/{n;n;n;n;n;s/'\''DB_USERNAME'\'', '\''.*'\''/'\''DB_USERNAME'\'', '\''myProject'\''/g}' /var/www/myProject/config/database.php
 sed -i '/mysql/{n;n;n;n;n;n;s/'\''DB_PASSWORD'\'', '\''.*'\''/'\''DB_PASSWORD'\'', '\''myPassword'\''/g}' /var/www/myProject/config/database.php
+# Check if host directory exists, empty it if it does, and copy contents of guest /var/www to host vagrantProjectBase/www/
+if [ -d "/vagrant/www" ]; then
+  rm -rf /vagrant/www/*
+  cd /var/www
+  find . -depth -print | cpio -pvdum /vagrant/www/
+  cd ~
+fi
