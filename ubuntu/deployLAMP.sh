@@ -23,7 +23,7 @@ composer global require laravel/installer
 cd /var/www/
 composer create-project --prefer-dist laravel/laravel myProject
 # Change the ownsership of storage directory to be 777 (Laravel requirement)
-chmod -R 777 /var/www/myProject/storage
+sudo chmod -R 777 /var/www/myProject/storage
 # Change the default web site in Apache2 configuration to point to the Laravel web directory
 sudo sed -i 's/DocumentRoot.*/DocumentRoot \/var\/www\/myProject\/public/' /etc/apache2/sites-available/000-default.conf
 # Restart Apache2 to reflect the changes
