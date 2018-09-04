@@ -11,6 +11,8 @@ boxes/*
 /.vagrant
 /ubuntu/.vagrant
 /ubuntu/www
+/chef-single/www
+/chef-multi/www
 /website/.vagrant
 /website/build
 /vagrant-spec.config.rb
